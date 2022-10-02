@@ -41,10 +41,36 @@
         </div>
       </nav>
 
-
     <div class="container">
-        <h1>Bienvenido ADMIN</h1>
-        <a href="/storage" class="btn btn-outline-primary mt-4">Hacer pedido</a>
+
+        
+        <h1 class="mt-4">Agregar Proveedor</h1>
+        <div class="card border-secondary">
+          <div class="card-body">
+            <form action="/supplieradd" method="POST">
+              <div class="mb-3">
+    
+                <label for="user" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" tabindex="2">
+    
+                <label for="user" class="form-label">Folio</label>
+                <input type="text" class="form-control" id="folio" name="folio" tabindex="3">
+    
+                <label for="user" class="form-label">Marca</label>
+                <input type="text" class="form-control" id="marca" name="marca" tabindex="4">
+    
+                    <label for="user" class="form-label">Email</label>
+                <input type="text" class="form-control" id="email" name="email" tabindex="5">
+                
+                <label for="user" class="form-label">Telefono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" tabindex="6">
+        
+              </div>
+              <button type="submit" class="btn btn-primary" tabindex="5">Agregar</button>
+              <a href="/employes" class="btn btn-danger">Cancelar</a><br>
+            </form>
+          </div>
+        </div>   
     </div>
 
  

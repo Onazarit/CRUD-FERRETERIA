@@ -29,9 +29,7 @@
               <li class="nav-item">
                 <a href="/supplier" class="nav-link active" href="#">Proveedores</a>
               </li>
-              <li class="nav-item">
-                <a href="/sales" class="nav-link active" href="#">Punto de Venta</a>
-              </li>
+              
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -41,34 +39,45 @@
         </div>
       </nav>
 
+      <% if (employee) { %>
     <div class="container">
 
-        
-        <h1 class="mt-4">Agregar Producto</h1>
+        <h1 class="mt-4">Agregar Empleado</h1>
         <div class="card border-secondary">
           <div class="card-body">
-            <form action="/storageadd" method="POST">
-              <div class="mb-3">
-                <label for="user" class="form-label">Nombre del Producto</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" tabindex="1">
-    
-                <label for="user" class="form-label">Marca</label>
-                <input type="text" class="form-control" id="marca" name="marca" tabindex="2">
-    
-                <label for="user" class="form-label">Cantidad</label>
-                <input type="number" class="form-control" id="cantidad" name="cantidad" tabindex="3">
-    
-                <label for="user" class="form-label">Precio unitario</label>
-                <input type="number" class="form-control" id="precio_unitario" name="precio_unitario" tabindex="4">
-              </div>
-              <button type="submit" class="btn btn-primary" tabindex="5">Agregar</button>
-              <a href="/storage" class="btn btn-danger">Cancelar</a><br>
-            </form>
+            <form action="/employeeupdate" method="POST">
+              <input id="id" name="id" value="<%= employee.id %>" hidden>
+                <div class="mb-3">
+      
+                  <label for="user" class="form-label">Puesto</label>
+                  <input type="text" class="form-control" id="puesto" name="puesto" value="<%= employee.puesto %>" tabindex="2">
+      
+                  <label for="user" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" name="nombre" value="<%= employee.nombre %>" tabindex="3">
+      
+                  <label for="user" class="form-label">Apellidos</label>
+                  <input type="text" class="form-control" id="apellidos" name="apellidos" value="<%= employee.apellidos %>" tabindex="4">
+      
+                  <label for="user" class="form-label">Fecha de Nacimieto</label>
+                  <input type="text" class="form-control" id="fecha_de_nacimiento" name="fecha_de_nacimiento" value="<%= employee.fecha_de_nacimiento %>" tabindex="5">
+                  
+                  <label for="user" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="email" name="email" value="<%= employee.email %>" tabindex="6">
+      
+                  <label for="user" class="form-label">Telefono</label>
+                  <input type="text" class="form-control" id="telefono" name="telefono" value="<%= employee.telefono %>" tabindex="7">
+      
+                  <label for="user" class="form-label">Direccion</label>
+                  <input type="text" class="form-control" id="direccion" name="direccion" value="<%= employee.direccion %>" tabindex="8">
+      
+                </div>
+                <button type="submit" class="btn btn-primary" tabindex="5">Actualizar</button>
+                <a href="/employes" class="btn btn-danger">Cancelar</a><br>
+              </form>
           </div>
         </div>
-        
     </div>
-
+    <% } %>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

@@ -41,10 +41,41 @@
         </div>
       </nav>
 
-
     <div class="container">
-        <h1>Bienvenido ADMIN</h1>
-        <a href="/storage" class="btn btn-outline-primary mt-4">Hacer pedido</a>
+        <h1 class="mt-4">Proveedores</h1>
+        <a href="/supplier/add" class="btn btn-success">Agregar</a>
+        <a href="/" class="btn btn-warning">Crear nota</a><br>
+        <table class="table table-striped text-center mt-4">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th scope="col">ID</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">FOLIO</th>
+                    <th scope="col">MARCA</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">TELEFONO</th>
+                    <th scope="col">ACCIONES</th>
+                </tr>
+                <tbody>
+                    <% results.filter((supplier) =>
+                      supplier.nombre.includes('')
+                    ).forEach((supplier)=> { %>
+                    <tr>
+                        <td><%= supplier.id %></td>
+                        <td><%= supplier.nombre %></td>
+                        <td><%= supplier.folio %></td>
+                        <td><%= supplier.marca %></td>
+                        <td><%= supplier.email %></td>
+                        <td><%= supplier.telefono %></td>
+                        <td>
+                            <a href="/supplier/update/<%= supplier.id %>" class="btn btn-outline-info">editar</a>
+                            <a href="/supplier/delete/<%= supplier.id %>" class="btn btn-outline-danger">eliminar</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </thead>
+        </table>
     </div>
 
  
