@@ -41,30 +41,42 @@
         </div>
       </nav>
 
-    <% if (product) { %>
+    <% if (service) { %>
     <div class="container">
         
         <h1 class="mt-4">Editar</h1>
 
         <div class="card border-secondary">
             <div class="card-body"> 
-                <form action="/storageupdate" method="POST">
-                    <input id="id" name="id" value="<%= product.id %>" hidden>
+                <form action="/serviceupdate" method="POST">
+                    <input id="folio" name="folio" value="<%= service.folio %>" hidden>
                       <div class="mb-3">
+                        <label for="user" class="form-label">ID de Empleado</label>
+                        <input type="text" class="form-control" id="id" name="id" value="<%= service.id_empleado %>" tabindex="1">
+                        
+                        <label for="user" class="form-label">Nombre del Cliente</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<%= service.nombre %> "tabindex="2">
+                        
+                        <label for="user" class="form-label">Direccion del cliente</label>
+                        <input type="text" class="form-control" id="direccion" name="direccion" value="<%= service.direccion %> "tabindex="3">
+
+                        <label for="user" class="form-label">Telefono del Cliente</label>
+                        <input type="text" class="form-control" id="telefono" name="telefono" value="<%= service.telefono %> "tabindex="4">
+
                         <label for="user" class="form-label">Nombre del Producto</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" value="<%= product.nombre %>" tabindex="1">
-            
-                        <label for="user" class="form-label">Marca</label>
-                        <input type="text" class="form-control" id="marca" name="marca" value="<%= product.marca %> "tabindex="2">
-            
+                        <input type="text" class="form-control" id="producto" name="producto" value="<%= service.producto %> "tabindex="5">
+                        
+                        <label for="user" class="form-label">Marca del Producto</label>
+                        <input type="text" class="form-control" id="marca" name="marca" value="<%= service.marca %> "tabindex="6">
+
                         <label for="user" class="form-label">Cantidad</label>
-                        <input type="number" class="form-control" id="cantidad" name="cantidad" value="<%= product.cantidad %>" tabindex="3">
-            
-                        <label for="user" class="form-label">Precio unitario</label>
-                        <input type="number" class="form-control" id="precio_unitario" name="precio_unitario" value="<%= product.precio_unitario %>" tabindex="4">
+                        <input type="text" class="form-control" id="cantidad" name="cantidad" value="<%= service.cantidad %> "tabindex="7">
+
+                        <label for="user" class="form-label">Precio Unitario</label>
+                        <input type="text" class="form-control" id="precio_unitario" name="precio_unitario" value="<%= service.precio_unitario %> "tabindex="8">
                       </div>
                       <button type="submit" class="btn btn-primary" tabindex="5">Actualizar</button>
-                      <a href="/storage" class="btn btn-danger">Cancelar</a><br>
+                      <a href="/services" class="btn btn-danger">Cancelar</a><br>
                     </form>
             </div>
         </div>        

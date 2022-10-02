@@ -123,6 +123,45 @@ router.get('/supplier/delete/:id', (req,res)=>{
     })
 })
 
+router.get('/services', (req,res)=>{
+    conexion.query('SELECT * FROM servicios', (error, results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('services',{results:results});
+        }
+    })
+})
+
+router.get('/services/add', (req,res)=>{
+    res.render('serviceAdd');
+})
+
+router.get('/services/update/:id', (req,res)=>{
+    const id = req.params.id;
+    conexion.query('SELECT * FROM servicios WHERE folio=?',[id], (error, results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('servicesUpdate',{service:results[0]});
+        }
+    })
+})
+
+router.get('/services/delete/:id', (req,res)=>{
+    const id = req.params.id;
+    conexion.query('DELETE FROM servicios WHERE folio = ?', [id], (error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.redirect('/services')
+        }
+    })
+})
+
+router.get('/login', (req,res)=>{
+    res.render('login');
+})
 
 const crud = require('./controllers/crud');
 router.post('/storageadd', crud.saveStorage);
@@ -133,5 +172,10 @@ router.post('/employeeupdate', crud.updateEmployee);
 
 router.post('/supplieradd', crud.saveSupplier);
 router.post('/supplierupdate', crud.updateSupplier);
+
+router.post('/serviceadd', crud.saveService);
+router.post('/serviceupdate', crud.updateService);
+
+router.post('/login', crud.login);
 
 module.exports = router

@@ -30,7 +30,7 @@
                 <a href="/supplier" class="nav-link active" href="#">Proveedores</a>
               </li>
               <li class="nav-item">
-                <a href="/sales" class="nav-link active" href="#">Punto de Venta</a>
+                <a href="/services" class="nav-link active" href="#">Servicios </a>
               </li>
             </ul>
             <form class="d-flex">
@@ -42,38 +42,44 @@
       </nav>
 
     <div class="container">
-        <h1 class="mt-4">Inventario</h1>
-        <a href="/storage/add" class="btn btn-success">Agregar</a>
-        <a href="/" class="btn btn-warning">Crear pedido</a><br>
-        <table class="table table-striped text-center mt-4">
-            <thead>
-                <tr class="bg-primary text-white">
-                    <th scope="col">ID</th>
-                    <th scope="col">NOMBRE</th>
-                    <th scope="col">MARCA</th>
-                    <th scope="col">CANTIDAD</th>
-                    <th scope="col">PRECIO_UNITARIO</th>
-                    <th scope="col">ACCIONES</th>
-                </tr>
-                <tbody>
-                    <% results.filter((product) =>
-                      product.nombre.includes('')
-                    ).forEach((product)=> { %>
-                    <tr>
-                        <td><%= product.id %></td>
-                        <td><%= product.nombre %></td>
-                        <td><%= product.marca %></td>
-                        <td><%= product.cantidad %></td>
-                        <td><%= product.precio_unitario %></td>
-                        <td>
-                            <a href="/storage/update/<%= product.id %>" class="btn btn-outline-info">editar</a>
-                            <a href="/storage/delete/<%= product.id %>" class="btn btn-outline-danger">eliminar</a>
-                        </td>
-                    </tr>
-                    <% }) %>
-                </tbody>
-            </thead>
-        </table>
+
+        
+        <h1 class="mt-4">Agregar Servicio a Domicilio</h1>
+        <div class="card border-secondary">
+          <div class="card-body">
+            <form action="/serviceadd" method="POST">
+              <div class="mb-3">
+    
+                <label for="user" class="form-label">ID de Empleado</label>
+                <input type="text" class="form-control" id="id" name="id" tabindex="3">
+    
+                <label for="user" class="form-label">Nombre del Cliente</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" tabindex="4">
+    
+                <label for="user" class="form-label">Direccion del Cliente</label>
+                <input type="text" class="form-control" id="direccion" name="direccion" tabindex="5">
+                
+                <label for="user" class="form-label">Telefono del Cliente</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" tabindex="6">
+                
+                <label for="user" class="form-label">Nombre del Producto</label>
+                <input type="text" class="form-control" id="producto" name="producto" tabindex="7">
+                
+                <label for="user" class="form-label">Marca del Producto</label>
+                <input type="text" class="form-control" id="marca" name="marca" tabindex="8">
+
+                <label for="user" class="form-label">Cantidad</label>
+                <input type="text" class="form-control" id="cantidad" name="cantidad" tabindex="9">
+
+                <label for="user" class="form-label">Precio unitario</label>
+                <input type="text" class="form-control" id="precio_unitario" name="precio_unitario" tabindex="10">
+        
+              </div>
+              <button type="submit" class="btn btn-primary" tabindex="5">Agregar</button>
+              <a href="/services" class="btn btn-danger">Cancelar</a><br>
+            </form>
+          </div>
+        </div>   
     </div>
 
  
